@@ -14,7 +14,7 @@ The knowledge has applied for the program included:
 
 ## Include
 * Full Source Code of the game
-* The video running the game (g2048)
+* The video running the game (Youtube Link: https://www.youtube.com/watch?v=W337cZRo5B0&feature=youtu.be )
 
 ## Current Functionalities
 * Need to fill the name before playing
@@ -23,6 +23,7 @@ The knowledge has applied for the program included:
 * All the move (Up, Down,Left, Right) is working properly
 * Game End when there are no further move or space left
 * User could choose to restart game
+* User could logout/exit the game
 
 ## Further work
 
