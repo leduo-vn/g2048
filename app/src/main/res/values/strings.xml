@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">g2048</string>
+    <string name="gameTitle">2048</string>
+    <string name="userNameHint">Please enter your name</string>
+    <string name="start">START</string>
+    <string name="instruction"><b>HOW TO PLAY:</b> Use your arrow keys to move the tiles. When two tiles with the same number touch, they merge into one!</string>
+    <string name="reference">The game is the spin-off of the original 2048 created by <b><u>Gabriele Cirulli</u></b> </string>
+    <string name="gameAim">The game is created by Amie Le and used for the SIT 378 practice only for the up-skilling purpose</string>
+    <string name="score"><b>SCORE: </b></string>
+    <string name="highScore"><b>HIGH SCORE: </b></string>
+    <string name="logout">Logout</string>
+    <string name="playAgain">Play Again</string>
+</resources>
