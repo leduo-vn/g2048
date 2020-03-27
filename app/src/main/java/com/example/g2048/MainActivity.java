@@ -2,7 +2,6 @@ package com.example.g2048;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
-import androidx.room.RoomDatabase;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         else {
-            // find current user
+            // If user is not existed then create User
             User user = MainActivity.gDatabase.daoUser().getUserByName(username);
             if (user == null)
             {
@@ -38,13 +37,9 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.gDatabase.daoUser().addUser(newUser);
             }
 
-            Log.i("info","pass");
+            //Create and Start Game Activity
             Intent intent = new Intent(this, gameActivity.class);
             intent.putExtra("USERNAME",username);
-
-
-
-
             startActivity(intent);
             finish();
         }

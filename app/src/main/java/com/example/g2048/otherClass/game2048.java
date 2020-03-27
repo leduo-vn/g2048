@@ -1,22 +1,21 @@
 package com.example.g2048.otherClass;
 
 import android.util.Log;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class game2048 {
 
     Random rand = new Random();
-    int SIZE=4;
+    final int SIZE=4;
 
+    // Game stage
     int[][] gameMatrix = {
             {1,1,1,1},
             {1,1,1,1},
             {1,1,1,1},
             {1,1,1,1}
     };
+
     boolean gameActive;
     int score;
     int HighScore;
@@ -36,8 +35,8 @@ public class game2048 {
     public int getHighScore() {return HighScore;};
     public Boolean getGameActive() { return gameActive; };
 
-    //CheckFinish
-    public int getRandomAvailalePosition()
+
+    public int getRandomAvailablePosition()
     {
         Log.i("info","here");
         int randInt=0;
@@ -53,15 +52,13 @@ public class game2048 {
         return randInt;
     }
 
-
     private void IncreaseScore(int extra)
     {
         score+=extra;
         if (score > HighScore) HighScore = score;
     }
 
-
-    public int AddNewRandomItem()
+    public void AddNewRandomItem()
     {
         Boolean available = false;
         for (int row = 0; row<SIZE;row++)
@@ -72,20 +69,19 @@ public class game2048 {
                     break;
                 }
         if (available) {
-            int itemPos = getRandomAvailalePosition();
+            int itemPos = getRandomAvailablePosition();
             int quotient = itemPos / 4;
             int remainder = itemPos % 4;
             gameMatrix[quotient][remainder] = 2;
-            return itemPos;
         }
         else{
             CheckGameOver();
             gameActive = false;
         }
 
-        return 0;
     }
 
+    // If there is no further space or move then game is over
     private void CheckGameOver()
     {
         for (int row = 0; row< SIZE-2; row++)
@@ -94,6 +90,7 @@ public class game2048 {
 
          gameActive = false;
     }
+
 
     public void Up()
     {

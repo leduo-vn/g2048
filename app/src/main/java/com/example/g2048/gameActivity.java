@@ -1,24 +1,18 @@
 package com.example.g2048;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.g2048.entities.User;
 import com.example.g2048.otherClass.game2048;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class gameActivity extends AppCompatActivity {
 
@@ -41,8 +35,8 @@ public class gameActivity extends AppCompatActivity {
         }
     };
 
-
-    public void DisplayGameMatrix(int[][] gameMatrix, int score, int highScore){
+    private void DisplayBoard(int[][] gameMatrix)
+    {
         for (int row = 0; row < gameMatrix.length; row ++)
             for (int col = 0; col <gameMatrix.length; col++) {
                 String idName = "textView" + Integer.toString(row * 4 + col);
@@ -53,11 +47,25 @@ public class gameActivity extends AppCompatActivity {
                 else
                     item.setText(Integer.toString(gameMatrix[row][col]));
             }
+    }
+
+    private void DisplayScore(int score)
+    {
         TextView scoreTextView = (TextView) findViewById(R.id.score);
         scoreTextView.setText(getResources().getString(R.string.score) + Integer.toString(score));
+    }
 
+    private void DisplayHighScore(int highScore)
+    {
         TextView highScoreTextView = (TextView) findViewById(R.id.highScore);
         highScoreTextView.setText(getResources().getString(R.string.highScore)+Integer.toString(highScore));
+    }
+
+    public void DisplayGameMatrix(int[][] gameMatrix, int score, int highScore){
+
+        DisplayBoard(gameMatrix);
+        DisplayScore(score);
+        DisplayHighScore(highScore);
     }
 
     public void StoreCurrentGame()
@@ -92,6 +100,13 @@ public class gameActivity extends AppCompatActivity {
 
     public void PlayAgainBtnClicked(View view)
     {
+        // Remove play again button
+        Button playAgainBtn = (Button) findViewById(R.id.playAgainBtn);
+        playAgainBtn.setVisibility(View.INVISIBLE);
+
+        TextView cover = (TextView) findViewById(R.id.cover);
+        cover.setVisibility(View.INVISIBLE);
+
         StartNewGame();
     }
 
